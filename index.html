@@ -9,22 +9,11 @@
   </head>
   <body>
     <div class="start-menu">
-      <video autoplay width="1920" height="1080" preload loop>
-        <!-- <source
-          src="./images/Master.iphone (1).mp4"
-          type="video/mp4; codecs=avc1.42E01E"
-        />
-        <source
-          src="./images/Master.webmhd (1).webm"
-          type="video/webm; codecs=vp8"
-        />
-        <source
-          src="./images/Master.oggtheora (1).ogv"
-          type="video/ogg; codecs=theora"
-        /> -->
+      <video autoplay muted width="1920" height="1080" preload controls loop>
         <source src="./images/rain.mp4" type="video/mp4"></source>
         <source src="./images/rain.ogv" type="video/webm"></source>
       </video>
+      <script>document.querySelector('video').removeAttribute('controls')</script>
       <button class="start-game-button">START GAME</button>
     </div>
     <div class="main-wrapper invisable">
