@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="start-menu">
+      <video autoplay loop>
+        <source src="./images/Master.mp4 " type="video/mp4" />
+      </video>
+      <button class="start-game-button">START GAME</button>
+    </div>
+    <div class="main-wrapper invisable">
+      <div class="content-wrapper">
+        <h1>You</h1>
+        <p class="instructions">Place your ships to begin the battle!</p>
+        <button class="start-button disabled">START</button>
+        <div class="main-container" id="gameboard-1"></div>
+        <div class="buttons-container">
+          <button class="rotate-button">
+            <img src="./images/rotate-right-variant.svg" alt="" />
+          </button>
+          <button class="clear-button">
+            <img src="./images/cancel.svg" alt="" />
+          </button>
+        </div>
+        <div class="boat-placer">
+          <p class="ships-num" id="large">1x</p>
+          <div class="draggable large" data-length="4" draggable="true"></div>
+          <p class="ships-num" id="medium">3x</p>
+          <div class="draggable medium" data-length="3" draggable="true"></div>
+          <p class="ships-num" id="small">3x</p>
+          <div class="draggable small" data-length="2" draggable="true"></div>
+        </div>
+      </div>
+      <div class="content-wrapper invisable" id="computer">
+        <h1>The Enemy</h1>
+        <div class="main-container" id="gameboard-2"></div>
+      </div>
+    </div>
+    <div class="game-end invisable">
+      <h1 class="game-over invisable">GAMEOVER</h1>
+      <p class="game-info invisable"></p>
+      <button class="restart-button invisable">RESTART GAME</button>
+    </div>
+    <script type="module" src="controller.js"></script>
+  </body>
+</html>

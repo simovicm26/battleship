@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  cursor: crosshair;
+  margin: 0;
+  font-family: "Special Elite", cursive;
+  background-color: rgb(0, 12, 51);
+  color: white;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(10, 35px);
+  grid-template-rows: repeat(10, 35px);
+  border: 3px solid rgb(255, 255, 255);
+}
+
+.field {
+  box-sizing: border-box;
+  border: 1px solid rgb(255, 255, 255);
+  width: 35px;
+  height: 35px;
+}
+
+.field:hover {
+  background-color: rgba(0, 0, 255, 0.521);
+}
+
+.ship.field:hover {
+  background-color: rgb(77, 77, 77);
+}
+
+#gameboard-1 > div.field:hover {
+  background-color: transparent;
+}
+
+#gameboard-1 > div.field.ship:hover {
+  background-color: rgb(77, 77, 77);
+}
+
+.main-wrapper {
+  display: flex;
+  gap: 125px;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.boat-placer {
+  display: flex;
+  align-items: center;
+}
+
+.ships-num {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.ship {
+  background-color: rgb(77, 77, 77);
+  border: 3px solid rgb(180, 180, 180);
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: inset;
+}
+
+.hit {
+  pointer-events: none;
+  position: relative;
+}
+.hit::before {
+  left: 1px;
+  top: 1px;
+  content: url("./images/explode-svgrepo-com.svg");
+  position: absolute;
+}
+.ship.hit::before {
+  left: -1px;
+  top: -2px;
+  content: url("./images/explode-svgrepo-com.svg");
+  position: absolute;
+}
+
+.miss {
+  background-color: rgb(128, 128, 128);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  justify-self: center;
+  align-self: center;
+  border: 1px solid rgb(255, 255, 255);
+  border: none;
+  box-shadow: inset;
+  pointer-events: none;
+}
+
+.inactive {
+  pointer-events: none;
+  position: relative;
+}
+
+.inactive::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(12, 18, 51, 0.836);
+}
+
+.invisable {
+  display: none;
+}
+
+.small {
+  width: 70px;
+  height: 35px;
+}
+
+.small-vertical {
+  width: 35px;
+  height: 70px;
+}
+
+.medium {
+  width: 105px;
+  height: 35px;
+}
+
+.medium-vertical {
+  width: 35px;
+  height: 105px;
+}
+
+.large {
+  width: 140px;
+  height: 35px;
+}
+
+.large-vertical {
+  width: 35px;
+  height: 140px;
+}
+
+.undraggable {
+  background-color: rgb(77, 77, 77);
+  border: 5px solid rgb(180, 180, 180);
+  box-sizing: border-box;
+  cursor: auto;
+  margin-right: 25px;
+  opacity: 0.3;
+}
+
+.draggable {
+  background-color: rgb(77, 77, 77);
+  cursor: move;
+  margin-right: 25px;
+  border: 5px solid rgb(180, 180, 180);
+  box-sizing: border-box;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.hovered {
+  background-color: rgba(111, 250, 111, 0.411);
+}
+
+.rotate-button {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 12, 51);
+  border: none;
+  margin: 0 10px;
+}
+
+.clear-button {
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: rgb(0, 12, 51);
+}
+
+.clear-button:hover {
+  background-color: rgb(38, 42, 94);
+}
+
+.rotate-button:hover {
+  background-color: rgb(38, 42, 94);
+}
+
+.start-button {
+  font-size: 25px;
+
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  padding-top: 15px;
+  font-family: "Special Elite", cursive;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  /* pointer-events: none; */
+}
+
+.start-menu {
+  position: relative;
+  height: 100%;
+  z-index: 1000;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.start-game-button {
+  font-family: "Special Elite", cursive;
+  font-size: 50px;
+  padding: 30px;
+  padding-top: 40px;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  color: white;
+  background-color: rgb(0, 0, 46);
+  box-shadow: inset;
+}
+
+.start-game-button:hover {
+  background-color: rgb(0, 0, 85);
+}
+
+.game-info {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.animation {
+  animation: blinking 0.5s 3;
+}
+
+@keyframes blinking {
+  0% {
+    background-color: none;
+  }
+  100% {
+    background-color: rgba(177, 0, 0, 0.877);
+  }
+}
+
+.game-over {
+  font-size: 50px;
+  text-align: center;
+}
+
+.restart-button {
+  font-size: 25px;
+  width: fit-content;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  padding-top: 15px;
+  font-family: "Special Elite", cursive;
+}
+
+.game-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
